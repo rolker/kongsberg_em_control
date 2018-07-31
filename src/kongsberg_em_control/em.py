@@ -21,7 +21,10 @@ class EM:
         self.socket.sendto(msg,self.destination)
 
     def startLine(self,line):
-        msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL='+line+',COM=\r\n'
+        if line == '-1':
+            msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL=,COM=\r\n'
+        else:
+            msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL='+line+',COM=\r\n'
         self.socket.sendto(msg,self.destination)
 
 if __name__ == '__main__':
