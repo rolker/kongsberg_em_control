@@ -25,6 +25,7 @@ class EM:
             msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL=,COM=\r\n'
         else:
             msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL='+str(line)+',COM=\r\n'
+        print msg
         self.socket.sendto(msg,self.destination)
 
 if __name__ == '__main__':

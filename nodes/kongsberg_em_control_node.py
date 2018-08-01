@@ -14,7 +14,7 @@ def handle_em_command(req):
         sonar.startPinging()
         return EMControlResponse("ok")
     if req.requested_mode == EMControlRequest.SONAR_REQUEST_START_LINE:
-        sonar.startLine(str(req.line_number))
+        sonar.startLine(req.line_number)
         return EMControlResponse("ok")
     return EMControlResponse("unknown mode")
 
