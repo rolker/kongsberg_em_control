@@ -6,7 +6,7 @@ uint8 SONAR_REQUEST_START_PINGING  = 1
 uint8 SONAR_REQUEST_START_LINE     = 2
 
 uint8 requested_mode
-uint32 line_number
+int32 line_number
 
 ---
 
