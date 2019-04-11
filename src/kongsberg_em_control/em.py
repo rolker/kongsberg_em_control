@@ -28,6 +28,17 @@ class EM:
         print msg
         self.socket.sendto(msg,self.destination)
 
+
+# multicast 224.1.20.40 port 6020
+class KController:
+    def __init__(self):
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.socket.bind(('',4002))
+        
+    def run(self):
+        while True:
+            print self.socket.recvfrom(4096)
+
 if __name__ == '__main__':
-    em = EM('stormi')
-    em.startLine('11')
+    k = KController()
+    k.run()
