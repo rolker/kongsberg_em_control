@@ -31,13 +31,28 @@ class EM:
 
 # multicast 224.1.20.40 port 6020
 class KController:
-    def __init__(self):
+    def __init__(self, khost="localhost"):
+        self.khost = khost
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.bind(('',4002))
+        self.socket.settimeout(1.0)
+        
+        #self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        #self.socket.connect((self.khost,14002))
+        #self.socket.send('$KSSIS,13,EM2040P_40\r\n')
+        #self.socket.send('$KSSIS,451,EM2040P_40\r\n')
+
+        #self.socket.send('$KSSIS,458,EM2040P_40\r\n')
         
     def run(self):
         while True:
-            print self.socket.recvfrom(4096)
+            try:
+                data = self.socket.recv(4096)
+                print data
+            except socket.timeout:
+                print 'waiting...'
+                #self.socket.sendto('$KSSIS,13,EM2040P_40\r\n',(self.khost,14002))
+                
 
 if __name__ == '__main__':
     k = KController()
