@@ -57,3 +57,13 @@ class KController:
 if __name__ == '__main__':
     k = KController()
     k.run()
+
+'''
+Remote control of SIS5. By sending NMEA-like messages to the SIS PC on port 55035 it is
+possible to toggle pinging, logging and setting the line number. The messages are as
+follows, replace EM2040_101 with the current echo sounder type and model:
+o Toggle pinging: "$KSSIS,450,453,EM2040_101\n\r"
+o Toggle logging: "$KSSIS,450,454,EM2040_101\n\r"
+o Increment line: "$KSSIS,450,457,EM2040_101,0000\n\r"
+o Toggle WC Log: "$KSSIS,450,469,EM2040_101/n/r
+'''
