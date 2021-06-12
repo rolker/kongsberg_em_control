@@ -21,14 +21,15 @@ def handle_em_command(req):
 
 def EMControlServer():
     global sonar
+
+    rospy.init_node('EMControl')
+
     while not rospy.has_param('sonar'):
         print ('waiting for sonar parameters...')
         rospy.sleep(1)
     
     sonar_params = rospy.get_param('sonar')
     sonar = kongsberg_em_control.em.EM(sonar_params['host'],str(sonar_params['model']))
-
-    rospy.init_node('EMControl')
     
     s = rospy.Service('/sonar/control',EMControl, handle_em_command)
     s.spin()

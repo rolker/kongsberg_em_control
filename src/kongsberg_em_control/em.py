@@ -26,7 +26,7 @@ class EM:
         else:
             msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL='+str(line)+',COM=\r\n'
         print (msg)
-        self.socket.sendto(msg,self.destination)
+        self.socket.sendto(msg.encode('utf-8'), self.destination)
 
 
 # multicast 224.1.20.40 port 6020
