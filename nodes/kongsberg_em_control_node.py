@@ -22,7 +22,7 @@ def handle_em_command(req):
 def EMControlServer():
     global sonar
     while not rospy.has_param('sonar'):
-        print 'waiting for sonar parameters...'
+        print ('waiting for sonar parameters...')
         rospy.sleep(1)
     
     sonar_params = rospy.get_param('sonar')

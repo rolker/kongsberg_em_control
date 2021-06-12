@@ -25,7 +25,7 @@ class EM:
             msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL=,COM=\r\n'
         else:
             msg = '$BSR12,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL='+str(line)+',COM=\r\n'
-        print msg
+        print (msg)
         self.socket.sendto(msg,self.destination)
 
 
@@ -48,9 +48,9 @@ class KController:
         while True:
             try:
                 data = self.socket.recv(4096)
-                print data
+                print (data)
             except socket.timeout:
-                print 'waiting...'
+                print ('waiting...')
                 #self.socket.sendto('$KSSIS,13,EM2040P_40\r\n',(self.khost,14002))
                 
 
