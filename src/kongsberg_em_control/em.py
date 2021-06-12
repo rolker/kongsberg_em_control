@@ -28,6 +28,11 @@ class EM:
         print (msg)
         self.socket.sendto(msg.encode('utf-8'), self.destination)
 
+    def incrementLine(self):
+        msg = '$BSR14,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL=,COM=\r\n'
+        self.socket.sendto(msg.encode('utf-8'),self.destination)
+
+
 
 # multicast 224.1.20.40 port 6020
 class KController:

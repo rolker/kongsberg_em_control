@@ -1,9 +1,10 @@
 # Kongsberg EM series echosounder control service
 
 # Sonar request
-uint8 SONAR_REQUEST_STOP_PINGING   = 0
-uint8 SONAR_REQUEST_START_PINGING  = 1
-uint8 SONAR_REQUEST_START_LINE     = 2
+uint8 SONAR_REQUEST_STOP_PINGING    = 0
+uint8 SONAR_REQUEST_START_PINGING   = 1
+uint8 SONAR_REQUEST_START_LINE      = 2
+uint8 SONAR_REQUEST_INCREMENT_LINE  = 3
 
 uint8 requested_mode
 int32 line_number

@@ -16,6 +16,9 @@ def handle_em_command(req):
     if req.requested_mode == EMControlRequest.SONAR_REQUEST_START_LINE:
         sonar.startLine(req.line_number)
         return EMControlResponse("ok")
+    if req.requested_mode == EMControlRequest.SONAR_REQUEST_INCREMENT_LINE:
+        sonar.incrementLine()
+        return EMControlResponse("ok")
     return EMControlResponse("unknown mode")
 
 
