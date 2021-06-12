@@ -31,7 +31,7 @@ def EMControlServer():
     sonar_params = rospy.get_param('sonar')
     sonar = kongsberg_em_control.em.EM(sonar_params['host'],str(sonar_params['model']))
     
-    s = rospy.Service('/sonar/control',EMControl, handle_em_command)
+    s = rospy.Service('sonar/control',EMControl, handle_em_command)
     s.spin()
     
     
