@@ -30,6 +30,7 @@ class EM:
 
     def incrementLine(self):
         msg = '$BSR14,EMX='+self.model_number+',ROP=,SID=,PLN=,PLL=,COM=\r\n'
+        print (msg)
         self.socket.sendto(msg.encode('utf-8'),self.destination)
 
 
